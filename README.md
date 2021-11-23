@@ -15,9 +15,16 @@ or
 “No link station within reach for point x,y”
 ```
 ## Solution
+### Brute Forcing
+Maybe it’s the easiest approach. we can solve this problem computing the power of each link station for each point. As shown in the picture below for a selected there should be 3 different comparisons to find out the best link station.
+![brute force example](https://github.com/sajjadsalehi/LinkStation/blob/main/pictures/brute-force.JPG?raw=true)
+In this case the average and worst time complexities are equal to O(N*M) where N is the number of points and M is the number of link stations.
 ### Quadtree
-A quadtree is very similar to a binary tree while the major difference is that the quadtree nodes have four children instead of two in binary tree. In this way every node can divide the 2d plane into four different sections of north west, north east, south west and south east. By creating a point quadtree (a specific version of quad tree) for the nodes we are always aware of the position of the nodes in relation to each other (Fig. 1) and searching among them will take only O (log n) in the average case.
+A quadtree is very similar to a binary tree while the major difference is that the quadtree nodes have four children instead of two in binary tree. In this way every node can divide the 2d plane into four different sections of north west, north east, south west and south east. By creating a point quadtree (a specific version of quad tree) for the nodes we are always aware of the position of the nodes in relation to each other (picture below) and searching among them will take only O (log n) in the average case.
 ![quadtree example](https://github.com/sajjadsalehi/LinkStation/blob/main/pictures/quadtree.png?raw=true)
+After constructing such quad tree, we are ready to intersect it with the link stations with their reach area. As an example, in the picture below a link station is shown in relation to the points on the quad tree. obviously, the link station is situated in the north east side of the point A, and there is only one passage to get point C which is in reach of link station, while in brute force approach we had to calculate the position of all 6 points in relation to the link station.
+![quadtree with link station combined example](https://github.com/sajjadsalehi/LinkStation/blob/main/pictures/quadtree-linkstation.JPG?raw=true)
+In the worst-case scenario this algorithm will perform with O (N*M) where N is the number of points and M is the number of link stations. However, the worst-case scenario does not easily happen. On the other hand, the average-case scenario will be O (M log N) where N is the number of the points and M is the number of Link stations.
 ## Installation
 
 At the moment this project does not use any dependencies. So your normal Python 3 should run it perfectly.
