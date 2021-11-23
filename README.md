@@ -1,5 +1,5 @@
 # LinkStation
- 
+
 This is the repository of solved link station problem.
 ##Question
 Write a program that solves the most suitable (with most power) link station for a device at given point [x,y]. Please make this project as complete as you think it should be to be maintainable in the long term by more than one maintainer. Provide instructions how to run the solution or if applicable how to access a deployed running version. This problem can be solved in 2-dimensional space. Link stations have reach and power. 
@@ -14,6 +14,10 @@ Program should output following line:
 or
 “No link station within reach for point x,y”
 ```
+## Solution
+### Quadtree
+A quadtree is very similar to a binary tree while the major difference is that the quadtree nodes have four children instead of two in binary tree. In this way every node can divide the 2d plane into four different sections of north west, north east, south west and south east. By creating a point quadtree (a specific version of quad tree) for the nodes we are always aware of the position of the nodes in relation to each other (Fig. 1) and searching among them will take only O (log n) in the average case.
+![quadtree example](https://github.com/sajjadsalehi/LinkStation/blob/main/pictures/quadtree.png?raw=true)
 ## Installation
 
 At the moment this project does not use any dependencies. So your normal Python 3 should run it perfectly.
